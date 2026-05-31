@@ -2,7 +2,7 @@
   "expo": {
     "icon": "./assets/icon.png",
     "android": {
-      "package": "com.appId.runable",
+      "package": "com.fleetops.app",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#ffffff"
@@ -10,11 +10,11 @@
       "edgeToEdgeEnabled": true
     },
     "extra": {
-      "apiUrl": "https://wwwnh30xivaixhe7ypu2d-preview-4200.runable.site/",
+      "apiUrl": "http://localhost:4200/",
       "applicationId": "wwwnh30xivaixhe7ypu2d"
     },
     "ios": {
-      "bundleIdentifier": "com.appId.runable",
+      "bundleIdentifier": "com.fleetops.app",
       "supportsTablet": true
     },
     "splash": {

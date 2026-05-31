@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+  external_labels:
+    monitor: fleetops
+
+scrape_configs:
+  # FleetOps control-plane exporter. The agent is push-based, so Prometheus
+  # scrapes the aggregated exporter on the app, NOT individual fleet nodes.
+  - job_name: fleetops
+    metrics_path: /api/metrics/prometheus
+    scheme: http
+    static_configs:
+      # When running the whole stack via docker compose, the app service is
+      # reachable by its service name. If you run the app on the host instead
+      # (bun run dev), use host.docker.internal:4200.
+      - targets: ["app:4200"]
+        labels:
+          instance: fleetops-control-plane
+
+  - job_name: prometheus
+    static_configs:
+      - targets: ["localhost:9090"]
